@@ -1,7 +1,7 @@
--- REVIVIR @LaiiiCa http://steamcommunity.com/id/SmilyGiirl/
+-- LostRP Revive Script
+-- TODO:
+-- 	~Add job check for Police/Medic
 
-
--- REVIVIR
 TriggerEvent('es:addGroupCommand', 'revive', "mod", function(source, args, user)
 		if(GetPlayerName(tonumber(args[2])))then
 			local player = tonumber(args[2])

@@ -1,2 +1,2 @@
 
-server_script 'revivir_server.lua'
+server_script 'revive_server.lua'
