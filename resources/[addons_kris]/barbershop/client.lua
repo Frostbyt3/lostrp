@@ -156,7 +156,7 @@ Citizen.CreateThread(function()
             end
             if(Vdist(d.x, d.y, d.z, pos.x, pos.y, pos.z) < d.activationDist ) then
                 SetTextComponentFormat("STRING")
-                AddTextComponentString("Appuyez sur la touche ~INPUT_CONTEXT~ pour ouvrir le magasin.")
+                AddTextComponentString("Press ~INPUT_CONTEXT~ to open Barber Shop")
                 DisplayHelpTextFromStringLabel(0, 0, 1, -1)
             end
             if(IsControlJustPressed(1, 51) and Vdist(d.x, d.y, d.z, pos.x, pos.y, pos.z) <  d.activationDist ) then
@@ -191,12 +191,12 @@ function BarberShopMenu()
             + new_skin.lipstick_color_price_selected
 
     ClearMenu()
-    Menu.addButton("Coupe de cheveux       - prix : ~r~".. hair_price+hair_color_price.." €", "hairCutMenu", nil)
-    Menu.addButton("Coupe des sourcils     - prix : ~r~".. eyebrows_price+eyebrows_color_price.." €", "eyebrowsMenu", nil)
-    Menu.addButton("Coupe de la barbe      - prix : ~r~".. beard_price+beard_color_price.." €", "beardCutMenu", nil)
-    Menu.addButton("Maquillage             - prix : ~r~".. makeup_price+makeup_opacity_price.." €", "makeupMenu", nil)
-    Menu.addButton("Rouge à lèvres         - prix : ~r~".. lipstick_price+lipstick_color_price.." €", "lipstickMenu", nil)
-    Menu.addButton("Payer"..spacebetween.."~y~"..tostring(price).." €", "barberPayMenu", price)
+    Menu.addButton("Hair Style             - price: ~r~$".. hair_price+hair_color_price, "hairCutMenu", nil)
+    Menu.addButton("Eyebrows     - price: ~r~$".. eyebrows_price+eyebrows_color_price, "eyebrowsMenu", nil)
+    Menu.addButton("Beard      - price: ~r~$".. beard_price+beard_color_price, "beardCutMenu", nil)
+    Menu.addButton("Makeup             - price: ~r~$".. makeup_price+makeup_opacity_price, "makeupMenu", nil)
+    Menu.addButton("Lipstick         - price: ~r~$".. lipstick_price+lipstick_color_price, "lipstickMenu", nil)
+    Menu.addButton("Pay: "..spacebetween.."~y~$"..tostring(price), "barberPayMenu", price)
 end
 
 ------------------------------------------------------ HAIR ------------------------------------------------------------
@@ -204,17 +204,17 @@ end
 
 ------------ HAIRCUT ---------
 function hairCutMenu()
-    options.menu_subtitle = "Coupe"
+    options.menu_subtitle = "Hair"
     ClearMenu()
-    Menu.addButton("Retour", "BarberShopMenu", nil)
+    Menu.addButton("Return", "BarberShopMenu", nil)
     for i = 0, GetNumberOfPedDrawableVariations(GetPlayerPed(-1), 2) -1 do
         if i ~= new_skin.hair then
-            Menu.addButton("Coupe n°"..i.."     - prix : ~r~".. hair_price.." €", "hairCutMenuAction", {id = i, price = hair_price}, "hairCutMenuSelected")
+            Menu.addButton("Hair n°"..i.."     - prix : ~r~".. hair_price.." €", "hairCutMenuAction", {id = i, price = hair_price}, "hairCutMenuSelected")
         else
-            Menu.addButton("Coupe n°"..i..spacebetween.." ~y~ACTUEL", "hairCutMenuAction", {id = i, price = 0}, "hairCutMenuSelected")
+            Menu.addButton("Hair n°"..i..spacebetween.." ~y~Current: ", "hairCutMenuAction", {id = i, price = 0}, "hairCutMenuSelected")
         end
     end
-    Menu.addButton("Retour", "BarberShopMenu", nil)
+    Menu.addButton("Return", "BarberShopMenu", nil)
 end
 function hairCutMenuSelected(item)
     SetPedComponentVariation(GetPlayerPed(-1), 2, item.id, 0, 0)
@@ -228,17 +228,17 @@ end
 ----------- HAIR COLOR ----------
 function hairColorMenu()
 
-    options.menu_subtitle = "Couleur"
+    options.menu_subtitle = "Color"
     ClearMenu()
-    Menu.addButton("Retour", "BarberShopMenu", nil)
+    Menu.addButton("Return", "BarberShopMenu", nil)
     for i = 0,  GetNumHairColors() do
         if i ~= new_skin.hair_color then
-            Menu.addButton("Couleur n°"..i.."     - prix : ~r~".. hair_color_price.." €", "hairColorMenuAction", {id = i, price = hair_color_price}, "hairColorMenuSelected")
+            Menu.addButton("Color n°"..i.."     - price: ~r~$".. hair_color_price, "hairColorMenuAction", {id = i, price = hair_color_price}, "hairColorMenuSelected")
         else
-            Menu.addButton("Couleur n°"..i..spacebetween.." ~y~ACTUEL", "hairColorMenuAction", {id = i, price = 0}, "hairColorMenuSelected")
+            Menu.addButton("Color n°"..i..spacebetween.." ~y~Current: ", "hairColorMenuAction", {id = i, price = 0}, "hairColorMenuSelected")
         end
     end
-    Menu.addButton("Retour", "BarberShopMenu", nil)
+    Menu.addButton("Return", "BarberShopMenu", nil)
 end
 function hairColorMenuSelected(item)
     SetPedHairColor(GetPlayerPed(-1), item.id,4)
