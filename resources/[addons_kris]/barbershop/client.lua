@@ -191,11 +191,11 @@ function BarberShopMenu()
             + new_skin.lipstick_color_price_selected
 
     ClearMenu()
-    Menu.addButton("Hair Style             - price: ~r~$".. hair_price+hair_color_price, "hairCutMenu", nil)
-    Menu.addButton("Eyebrows     - price: ~r~$".. eyebrows_price+eyebrows_color_price, "eyebrowsMenu", nil)
-    Menu.addButton("Beard      - price: ~r~$".. beard_price+beard_color_price, "beardCutMenu", nil)
-    Menu.addButton("Makeup             - price: ~r~$".. makeup_price+makeup_opacity_price, "makeupMenu", nil)
-    Menu.addButton("Lipstick         - price: ~r~$".. lipstick_price+lipstick_color_price, "lipstickMenu", nil)
+    Menu.addButton("Hair Style      - price: ~r~$".. hair_price+hair_color_price, "hairCutMenu", nil)
+    Menu.addButton("Eyebrows        - price: ~r~$".. eyebrows_price+eyebrows_color_price, "eyebrowsMenu", nil)
+    Menu.addButton("Beard           - price: ~r~$".. beard_price+beard_color_price, "beardCutMenu", nil)
+    Menu.addButton("Makeup          - price: ~r~$".. makeup_price+makeup_opacity_price, "makeupMenu", nil)
+    Menu.addButton("Lipstick        - price: ~r~$".. lipstick_price+lipstick_color_price, "lipstickMenu", nil)
     Menu.addButton("Pay: "..spacebetween.."~y~$"..tostring(price), "barberPayMenu", price)
 end
 
