@@ -1,0 +1,91 @@
+ListenPort: 30120
+
+PreParseResources:
+    - mapmanager
+
+AutoStartResources:
+    - assets
+    - essentialmode
+    - wlcheck
+    - skin
+    - chat
+    - spawnmanager
+    - es_freeroam
+    - fivem-map-skater
+    - baseevents
+    - rconlog
+    - hardcap # prevents too many players from joining
+    - lastpostodb
+    - banking
+    - es_admin
+    - gb_vocal
+    - neverwanted
+    - fuel
+    - vehcontrol
+    - MissionText
+    - msq-directions-hud
+    - hunting
+    - paycheck
+    - vdk_inventory
+    - nomsjoueurs
+    - carhud
+    - metiers
+    - vdk_recolt
+    - interiors
+    - loadingscreen
+    - gcidentity
+    - gcInteraction
+    - garages
+    #- sirencontrols
+    #- gb_needs
+    - gb_foodshops
+    - moneylaundering
+    - es_slot
+    - gchelp
+    #- afkkick
+    - indicators
+    - carwash
+    - es_holdup
+    - phone
+    - gcillegal
+    - es_weashop
+    - clotheshop
+    - barbershop
+    - taxi
+    - ambulancier
+    - accessories_switcher
+    - bike_rental
+    - lux_vehcontrol
+    - Captain14_FBI
+    - Captain14_LSPD
+    - Captain14_Sheriff
+    - lscustoms
+    - revive
+    - drag
+    - weather
+    - heli
+
+# do change
+RconPassword: passwordhere
+
+# configure this, please
+Hostname: LostRP | Test server
+
+ScriptDebug: true
+
+DebugLog: true
+
+# set to false to hide from the online server list
+Announce: false
+
+# set to false to require players to be signed in to Steam
+DisableAuth: true
+
+# set to true to disable local script hook plugins
+DisableScriptHook: true
+
+# uncomment and set to the path of an icon to use in the server browser. it should be square.
+ServerIcon: hello.png
+
+# don't try enabling this
+#UseGameServerV2: true
